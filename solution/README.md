@@ -1,4 +1,4 @@
-## The csvserver assignment
+# The csvserver assignment
 
 Part I
 
@@ -79,6 +79,30 @@ curl -o ./part-1-output http://xxxxxxx:9393/raw (where xxxxxx is my AWS EC2 inst
 
 to generate the file with the name part-1-logs run:
 docker logs [container_id] >& part-1-logs (container_id is the name of your container from the command docker ps)
+
+## Part II
+
+0. to delete the running container run:
+docker stop [container_name]
+docker rm [container_name]
+
+1. to create a docker-compose.yaml file for the setup from part 1.
+open a new file with the command: vi docker-compose.yaml
+and paste the following content:
+
+ version: "3"
+ services:
+     csvserver:
+         image: infracloudio/csvserver:latest
+         container_name: csvserver
+         environment:
+             - "CSVSERVER_BORDER=Orange"
+
+         ports:
+             - 9393:9300
+         volumes:
+             - /home/ubuntu/inputFile:/csvserver/inputdata/
+
 
 
 
