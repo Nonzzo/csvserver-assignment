@@ -7,6 +7,14 @@ services:
             - "CSVSERVER_BORDER=Orange"
 
         ports:
-            - 9393:9300
+            - "9393:9300"
         volumes:
-            - /home/ubuntu/inputFile:/csvserver/inputdata/
+            - /home/ubuntu/inputFile:/csvserver/inputdata/inputFile
+
+    promethues:
+        image: prom/prometheus:v2.22.0
+        container_name: prometheus
+        ports: 
+            - "9090:9090"
+        volumes:
+            - /home/ubuntu/prometheus.yml:/etc/prometheus/prometheus.yml
