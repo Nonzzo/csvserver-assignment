@@ -13,8 +13,9 @@ Step 1: Part I
 Run the container image infracloudio/csvserver:latest in background and check if it's running.
 Solution:
 1.  run the following command in the terminal:
+```
 docker run -d infracloudio/csvserver:latest
-
+```
 2.  check if the container is running by running the following command:
 docker ps
 you will discover that the there's no container running
@@ -35,7 +36,7 @@ open the vi editor and write the file name:
 
 vi gencsv.sh
 paste the code save and close the file:
-
+```
 #!/bin/bash
 
 range=( $(seq  $counter -1 8)  ) 
@@ -45,12 +46,13 @@ for (( i=0; i<${#range[@]}; i++ ));
 do
 	echo "$i,$(($RANDOM))" >> inputFile
 done
+```
 
 run the following command to execute the script:
-
+```
 chmod +x gencsv.sh
 ./gencsv.sh
-
+```
 this should generate a file named inputFile in the current directory.
 
 run cat inputFile to check the content of the file.
