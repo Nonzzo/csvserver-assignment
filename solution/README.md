@@ -1,4 +1,4 @@
-The csvserver assignment
+## The csvserver assignment
 
 Part I
 
@@ -73,7 +73,14 @@ and also with the environmental variable given in the README.md file.
 
 in my case I had to create a inbound rule for the security group running my ec2 instance with ubuntu and allowed the port 9393
 in order to access the container.
-##
+
+to generate the file with name part-1-cmd run:
+curl -o ./part-1-output http://xxxxxxx:9393/raw (where xxxxxx is my AWS EC2 instance public ipv4 address)
+
+to generate the file with the name part-1-logs run:
+docker logs [container_id] >& part-1-logs (container_id is the name of your container from the command docker ps)
+
+
 
 
 
