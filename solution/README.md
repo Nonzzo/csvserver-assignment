@@ -114,8 +114,11 @@ open a new file with the command: `vi docker-compose.yaml` and paste the followi
              - /home/ubuntu/inputFile:/csvserver/inputdata/
 ```
 
+2.  To run the container use the command: `docker-compose up` making sure you are in the directory as the docker-compose file.
+
 
 ## Part III
+
 0. Delete any running container by running:
 
 ```
@@ -127,7 +130,7 @@ docker rm [container_name]
 
 run the `docker ps` command to be doubly sure that their are no running containers.
 
-Write and copy and paste the prometheus configuration into the prometheus.yml file and reference as a volume mounted on the docker-compose.yml file
+2. Write and copy and paste the prometheus configuration into the prometheus.yml file and reference as a volume mounted on the `docker-compose.yml` file
 the prometheus.yml should be:
 
 ```
@@ -142,7 +145,7 @@ global:
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  # The job name is added as a label `job=<job_name>` to any time series scraped from this config.
   - job_name: 'prometheus'
 
     # Override the global default and scrape targets from this job every 5 seconds.
@@ -180,6 +183,9 @@ services:
 ```
 
 to run the above file in the same directory use the `docker-compose up` command.
+
+If am using EC2 instance with ubuntu, to get access to my running prometheus container I had to set inbound rules in the Security group to allow port 9090.
+
 
 
 
