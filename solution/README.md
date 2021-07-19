@@ -90,6 +90,7 @@ docker rm [container_name]
 open a new file with the command: vi docker-compose.yaml
 and paste the following content:
 
+```
  version: "3"
  services:
      csvserver:
@@ -102,6 +103,19 @@ and paste the following content:
              - 9393:9300
          volumes:
              - /home/ubuntu/inputFile:/csvserver/inputdata/
+```
+
+
+## Part III
+0. Delete any running container by running:
+docker stop [container_name]
+docker rm [container_name]
+
+1. Add prometheus container by adding the image specified including the volume to the attached and and ports that are to be mapped from the host to the container, in this case both are 9090.
+
+run the docker ps command to be doubly sure that their are no running containers.
+
+Write and copy and paste the prometheus configuration into the prometheus.yml file and reference as a volume mounted on the docker-compose.yml file
 
 
 
